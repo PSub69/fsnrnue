@@ -7,8 +7,7 @@ results:
 
     script:
       files:
-        - ultimate_edition_0_9_1: https://github.com/leycec/fsnrnue/releases/download/2019.03.19/fsnrnue-2019.03.19-32.zip
-        - lav_filters: https://github.com/Nevcairiel/LAVFilters/releases/download/0.75/LAVFilters-0.75-Installer.exe
+        - lav_filters: https://github.com/Nevcairie0l/LAVFilters/releases/download/0.75/LAVFilters-0.75-Installer.exe
 
         #FIXME: Uncomment the following lines after adding support for the next stable
         #release of the Ultimate Edition.
@@ -59,28 +58,7 @@ results:
             description: Creating WINE prefix...
             name: create_prefix
             arch: win32
-            prefix: $GAMEDIR
-        - extract:
-            file: ultimate_edition_0_9_1
-            dst: "$GAMEDIR/drive_c/Program Files"
-        - extract:
-            file: game_fa
-            dst: "$GAMEDIR/drive_c/Program Files/Fate／stay night[Realta nua] -Fate-"
-        - extract:
-            file: game_fa_crack
-            dst: "$GAMEDIR/drive_c/Program Files/Fate／stay night[Realta nua] -Fate-"
-        - extract:
-            file: game_hf
-            dst: "$GAMEDIR/drive_c/Program Files/Fate／stay night[Realta nua] -Heaven's Feel-"
-        - extract:
-            file: game_hf_crack
-            dst: "$GAMEDIR/drive_c/Program Files/Fate／stay night[Realta nua] -Heaven's Feel-"
-        - extract:
-            file: game_ub
-            dst: "$GAMEDIR/drive_c/Program Files/Fate／stay night[Realta nua] -Unlimited Blade Works-"
-        - extract:
-            file: game_ub_crack
-            dst: "$GAMEDIR/drive_c/Program Files/Fate／stay night[Realta nua] -Unlimited Blade Works-"
+            prefix: $GAMEDIR            
         - task:
             description: Installing winetricks-based dependencies...
             name: winetricks
@@ -90,11 +68,6 @@ results:
             description: Installing LAVFilters-based DirectShow emulation...
             name: wineexec
             executable: lav_filters
-            prefix: $GAMEDIR
-        - task:
-            description: Installing Fate/stay night [Realta Nua] Ultimate Edition...
-            name: wineexec
-            executable: "$GAMEDIR/drive_c/Program Files/Fate／stay night [Réalta Nua] Ultimate Edition Setup.exe"
             prefix: $GAMEDIR
         #FIXME: Extract the 1.0.0 beta patches here.
         #FIXME: We probably need to manually delete the
